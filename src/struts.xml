@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+ <constant name="struts.devMode" value="true" />
+ <package name="tweet" extends="struts-default">
+ <action name="login" class="tweet.Login">
+ <result>/mainpage.jsp</result>
+ <result name="input">/index.jsp</result>
+ </action>
+ <action name="signup" >
+ <result>/signup.jsp</result>
+ </action>
+ <action name="Register" class="tweet.Register">
+ <result name="success">/index.jsp</result>
+ <result name="input">/signup.jsp</result>
+ <result name="error">/signup.jsp</result>
+ </action>
+ <action name="UpdateMessage" class="tweet.Update">
+ <result name="success">/mainpage.jsp</result>
+ </action>
+
+ <action name="CheckProfile" class="tweet.Follow">
+ <result name="success">/fprofile.jsp</result> 
+ </action>
+ <action name="FollowAction" class="tweet.FollowAction">
+ <result name="success">/fprofile.jsp</result>
+ <result name="error">/ferror.jsp</result> 
+ </action>
+ <action name="UnfollowAction" class="tweet.UnfollowAction">
+ <result name="success">/fprofile.jsp</result>
+ <result name="error">/ferror.jsp</result> 
+ </action>
+ <action name="MainProfile" class="tweet.MainProfile">
+ <result name="success">/mprofile.jsp</result>
+ <result name="error">/ferror.jsp</result> 
+ </action>
+ <action name="EditProfile" >
+ <result name="success">/eprofile.jsp</result>
+ <result name="error">/ferror.jsp</result> 
+ </action>
+ <action name="EditRegister" class="tweet.EditRegister">
+ <result name="success">/mprofile.jsp</result>
+ <result name="input">/eprofile.jsp</result> 
+ </action>
+ <action name="Logout" class="tweet.LogoutAction">
+  <result name="success">/LogoutSuccess.jsp</result>  
+</action> 
+<action name="DeleteConfirm">
+  <result name="success">/PasswordConfirmation.jsp</result>  
+</action>
+<action name="DeleteAccount" class="tweet.ConfirmPass">
+  <result name="success">/ConfirmAccDeletion.jsp</result>  
+  <result name="input">/PasswordConfirmation.jsp</result>
+</action>
+<action name="DeleteAcc" class="tweet.DeleteAcc">
+  <result name="success">/index.jsp</result>  
+  <result name="error">/ferror.jsp</result>
+</action>
+ </package>
+ </struts>

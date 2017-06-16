@@ -1,0 +1,29 @@
+CREATE DATABASE  IF NOT EXISTS `tweet`;
+
+DROP TABLE IF EXISTS `person`;
+CREATE TABLE `person` (
+  `user_id` varchar(255) NOT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `fullname` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `active` int(11) DEFAULT NULL,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+DROP TABLE IF EXISTS `following`;
+CREATE TABLE `following` (
+  `user_id` varchar(255) NOT NULL,
+  `following_id` varchar(255) DEFAULT NULL,
+  KEY `fk_book_bookcategoryid_idx` (`user_id`),
+  CONSTRAINT `fk_book_bookcategoryid` FOREIGN KEY (`user_id`) REFERENCES `person` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `tweet`;
+CREATE TABLE `tweet` (
+  `user_id` varchar(255) NOT NULL,
+  `message` varchar(255) NOT NULL,
+  `created` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  KEY `fk_book_bookcategoryid_idy` (`user_id`),
+  CONSTRAINT `fk_book_bookcategoryidd` FOREIGN KEY (`user_id`) REFERENCES `person` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
